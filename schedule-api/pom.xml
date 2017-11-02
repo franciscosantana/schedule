@@ -41,6 +41,12 @@
 			<artifactId>spring-security-oauth2</artifactId>
 			<version>${oauth.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-jwt</artifactId>
+			<version>1.0.8.RELEASE</version>
+		</dependency>
 		
 		<!-- Persistencia -->
 
@@ -59,6 +65,15 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 			<version>3.0</version>
+		</dependency>
+		
+		<!-- Tools -->
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>1.5.7.RELEASE</version>
+			<scope>runtime</scope>
 		</dependency>
 		
 	</dependencies>
