@@ -25,7 +25,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-	@Value("${schedule.oauth.tokenTimeout:60}")
+	@Value("${schedule.oauth.tokenTimeout:3600}")
 	private int expiration;
 
 	@Bean
@@ -41,7 +41,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory().withClient("schedule").secret("secret").accessTokenValiditySeconds(60).refreshTokenValiditySeconds(60)
+		clients.inMemory().withClient("schedule").secret("secret").accessTokenValiditySeconds(expiration).refreshTokenValiditySeconds(expiration)
 				.scopes("read", "write").authorizedGrantTypes("password", "refresh_token").resourceIds("resource");
 	}
 }
